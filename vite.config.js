@@ -7,7 +7,7 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      "/api": "http://localhost:8000", // proxies /api requests to backend
+      "/api": "https://careme-backend.vercel.app", // proxies /api requests to backend
     },
   },
   resolve: {
