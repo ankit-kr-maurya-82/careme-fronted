@@ -1,37 +1,32 @@
 @import url("https://fonts.googleapis.com/css2?family=Spectral:wght@500;600&family=Work+Sans:wght@400;500;600&display=swap");
 
-/* Overlay Background */
-.modal-overlay {
+.patient-modal-overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(2px);
+  inset: 0;
+  background: rgba(15, 23, 42, 0.45);
+  backdrop-filter: blur(4px);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
-}
-  
-/* Modal Card */
-.modal-card {
-  background: #ffffff;
-  width: 440px;
-  max-width: 95%;
-  padding: 28px;
-  border-radius: 10px;
-  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.12);
-  animation: fadeIn 0.25s ease;
-  font-family: "Work Sans", "Segoe UI", sans-serif;
+  padding: 20px;
 }
 
-/* Animation */
-@keyframes fadeIn {
+.patient-modal-card {
+  width: min(640px, 100%);
+  background: #ffffff;
+  border: 1px solid #d5e4df;
+  border-radius: 18px;
+  padding: 22px;
+  box-shadow: 0 22px 40px rgba(15, 23, 42, 0.2);
+  font-family: "Work Sans", "Segoe UI", sans-serif;
+  animation: patientModalIn 0.2s ease;
+}
+
+@keyframes patientModalIn {
   from {
     opacity: 0;
-    transform: translateY(-15px);
+    transform: translateY(10px);
   }
   to {
     opacity: 1;
@@ -39,102 +34,121 @@
   }
 }
 
-.modal-card h2 {
-  text-align: center;
-  margin-bottom: 20px;
-  font-weight: 600;
-  color: #111111;
+.patient-modal-head h2 {
+  margin: 0 0 6px;
+  color: #0f172a;
+  font-size: 34px;
+  line-height: 1.1;
   font-family: "Spectral", "Times New Roman", serif;
 }
 
-/* Form Layout */
-.modal-card form {
-  display: flex;
-  flex-direction: column;
+.patient-modal-head p {
+  margin: 0;
+  color: #64748b;
+  line-height: 1.55;
 }
 
-.modal-card label {
-  margin-top: 12px;
+.patient-modal-form {
+  margin-top: 16px;
+}
+
+.patient-modal-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.patient-modal-field {
+  margin-bottom: 12px;
+}
+
+.patient-modal-field label {
+  display: block;
+  margin-bottom: 6px;
+  color: #334155;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.patient-modal-field input,
+.patient-modal-field select {
+  width: 100%;
+  border: 1px solid #d5e4df;
+  border-radius: 10px;
+  padding: 11px 12px;
   font-size: 14px;
-  font-weight: 500;
-  color: #5b5b5b;
-}
-
-/* Inputs */
-.modal-card input,
-.modal-card select {
-  margin-top: 6px;
-  padding: 10px 12px;
-  border-radius: 999px;
-  border: 1px solid #e6e6e6;
-  background: #f7f7f7;
-  font-size: 14px;
-  transition: 0.3s ease;
-}
-
-.modal-card input:focus,
-.modal-card select:focus {
+  color: #0f172a;
   outline: none;
-  border-color: #111111;
-  box-shadow: 0 0 0 2px rgba(17, 17, 17, 0.08);
+  background: #ffffff;
 }
 
-/* Button Section */
-.modal-buttons {
+.patient-modal-field input:focus,
+.patient-modal-field select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.12);
+}
+
+.patient-modal-error {
+  margin: 4px 0 0;
+  color: #b91c1c;
+  font-size: 13px;
+}
+
+.patient-modal-buttons {
   display: flex;
-  justify-content: space-between;
-  margin-top: 25px;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 10px;
 }
 
-/* Primary Button */
-.modal-buttons button {
-  flex: 1;
-  padding: 10px 12px;
-  border-radius: 999px;
-  border: 1px solid #111111;
+.patient-modal-cancel,
+.patient-modal-submit {
+  border: none;
+  border-radius: 10px;
+  padding: 10px 16px;
   font-size: 14px;
+  font-weight: 600;
   cursor: pointer;
-  transition: 0.3s ease;
 }
 
-/* Update Button */
-.modal-buttons button[type="submit"] {
-  background-color: #111111;
+.patient-modal-cancel {
+  background: #e2e8f0;
+  color: #334155;
+}
+
+.patient-modal-submit {
+  background: linear-gradient(135deg, #2563eb, #3b82f6);
   color: #ffffff;
-  margin-right: 10px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.modal-buttons button[type="submit"]:hover {
-  background-color: #2a2a2a;
+.patient-modal-submit:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.25);
 }
 
-/* Cancel Button */
-.cancel-btn {
-  background-color: #ffffff;
-  color: #111111;
-}
-
-.cancel-btn:hover {
-  background-color: #f2f2f2;
-}
-
-/* Disabled State */
-.modal-buttons button:disabled {
-  opacity: 0.6;
+.patient-modal-submit:disabled {
+  opacity: 0.7;
   cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
 }
 
-/* Responsive */
-@media (max-width: 480px) {
-  .modal-card {
-    padding: 20px;
+@media (max-width: 700px) {
+  .patient-modal-card {
+    padding: 18px;
   }
 
-  .modal-buttons {
+  .patient-modal-head h2 {
+    font-size: 28px;
+  }
+
+  .patient-modal-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .patient-modal-buttons {
     flex-direction: column;
-  }
-
-  .modal-buttons button {
-    margin: 5px 0;
   }
 }
