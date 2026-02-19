@@ -1,44 +1,81 @@
 /* DoctorDashboard.css */
+@import url("https://fonts.googleapis.com/css2?family=Spectral:wght@500;600&family=Work+Sans:wght@400;500;600&display=swap");
+
 .doctor-dashboard {
   min-height: 100vh;
   background: linear-gradient(135deg, #eef6fb, #f8fbff);
   display: flex;
   justify-content: center;
-  align-items: center;
-  padding: 30px;
+  align-items: flex-start;
+  padding: 28px 20px 40px;
+  font-family: "Work Sans", "Segoe UI", sans-serif;
 }
 
-.doctor-dashboard > div {
+.doctor-dashboard-card {
   width: 100%;
-  max-width: 900px;
+  max-width: 980px;
   background: #ffffff;
-  padding: 40px 50px;
+  padding: 30px;
   border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border: 1px solid #d5e4df;
 }
 
-.doctor-dashboard h1 {
-  color: #1e293b;
-  font-size: 32px;
-  font-weight: 600;
+.doctor-dashboard-head {
   margin-bottom: 10px;
 }
 
+.doctor-dashboard-kicker {
+  margin: 0;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #0f766e;
+  font-weight: 600;
+}
+
+.doctor-dashboard h1 {
+  color: #0f172a;
+  font-size: 40px;
+  font-family: "Spectral", "Times New Roman", serif;
+  font-weight: 600;
+  margin: 10px 0 12px;
+}
+
 .doctor-dashboard p {
-  font-size: 17px;
+  font-size: 16px;
   margin: 6px 0;
   color: #475569;
 }
 
+.doctor-dashboard-meta {
+  width: fit-content;
+  border: 1px solid #d5e4df;
+  border-radius: 12px;
+  background: #f8fcfa;
+  padding: 10px 14px;
+  margin-bottom: 12px;
+}
+
+.doctor-dashboard-meta span {
+  display: block;
+  color: #0f172a;
+  font-weight: 600;
+}
+
+.doctor-dashboard-meta small {
+  color: #64748b;
+  font-size: 12px;
+}
+
 .dashboard-buttons {
-  margin-top: 25px;
+  margin-top: 18px;
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
 }
 
 .dashboard-buttons button {
-  padding: 14px 22px;
+  padding: 12px 18px;
   border: none;
   border-radius: 10px;
   background: linear-gradient(135deg, #2563eb, #3b82f6);
@@ -58,10 +95,11 @@
   text-align: center;
   font-size: 20px;
   margin-top: 50px;
+  color: #1e293b;
 }
 
 .doctor-dashboard-error {
-  color: crimson;
+  color: #b91c1c;
   font-weight: 500;
 }
 
@@ -69,12 +107,30 @@
   margin-top: 30px;
   padding: 22px;
   border-radius: 12px;
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
+  background: #f8fcfa;
+  border: 1px solid #d5e4df;
 }
 
 .doctor-dashboard-patient-section h2 {
   font-size: 22px;
   color: #0f172a;
   margin-bottom: 8px;
+}
+
+@media (max-width: 700px) {
+  .doctor-dashboard {
+    padding: 18px 14px 28px;
+  }
+
+  .doctor-dashboard-card {
+    padding: 20px 18px;
+  }
+
+  .doctor-dashboard h1 {
+    font-size: 32px;
+  }
+
+  .dashboard-buttons button {
+    width: 100%;
+  }
 }
