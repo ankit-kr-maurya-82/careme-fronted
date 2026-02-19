@@ -1,0 +1,179 @@
+@import url("https://fonts.googleapis.com/css2?family=Spectral:wght@500;600&family=Work+Sans:wght@400;500;600&display=swap");
+
+.doctor-problems-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #eef6fb, #f8fbff);
+  padding: 28px 20px 40px;
+  font-family: "Work Sans", "Segoe UI", sans-serif;
+  color: #0f172a;
+}
+
+.doctor-problems-shell {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.doctor-problems-loading {
+  margin: 24px;
+  color: #1e293b;
+}
+
+.doctor-problems-hero {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 16px;
+  border: 1px solid #d5e4df;
+  border-radius: 16px;
+  padding: 22px;
+  background: #ffffff;
+  margin-bottom: 14px;
+}
+
+.doctor-problems-kicker {
+  margin: 0;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #0f766e;
+  font-weight: 600;
+}
+
+.doctor-problems-hero h2 {
+  margin: 10px 0 10px;
+  font-size: 40px;
+  line-height: 1.15;
+  font-family: "Spectral", "Times New Roman", serif;
+}
+
+.doctor-problems-subtitle {
+  margin: 0;
+  color: #475569;
+  line-height: 1.55;
+}
+
+.doctor-problems-filter {
+  margin: 10px 0 0;
+  color: #334155;
+  font-size: 14px;
+}
+
+.doctor-problems-count-card {
+  width: 200px;
+  border: 1px solid #d5e4df;
+  border-radius: 14px;
+  background: #f8fcfa;
+  padding: 14px 16px;
+}
+
+.doctor-problems-count-card span {
+  display: block;
+  font-size: 36px;
+  line-height: 1;
+  font-family: "Spectral", "Times New Roman", serif;
+}
+
+.doctor-problems-count-card small {
+  color: #64748b;
+  font-size: 13px;
+}
+
+.doctor-problems-empty {
+  border: 1px solid #d5e4df;
+  border-radius: 14px;
+  background: #ffffff;
+  color: #475569;
+  padding: 14px 16px;
+}
+
+.doctor-problems-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.doctor-problems-card {
+  border: 1px solid #d5e4df;
+  border-radius: 14px;
+  background: #ffffff;
+  padding: 16px;
+}
+
+.doctor-problems-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.doctor-problems-card h3 {
+  margin: 0;
+  font-size: 24px;
+  line-height: 1.2;
+  font-family: "Spectral", "Times New Roman", serif;
+}
+
+.doctor-problems-status {
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 700;
+  background: #f1f5f9;
+  color: #334155;
+}
+
+.doctor-problems-status.pending {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.doctor-problems-status.open {
+  background: #eff6ff;
+  color: #1d4ed8;
+}
+
+.doctor-problems-status.resolved {
+  background: #ecfdf3;
+  color: #166534;
+}
+
+.doctor-problems-card p {
+  margin: 0 0 8px;
+  color: #475569;
+  line-height: 1.5;
+}
+
+.doctor-problems-date {
+  margin-top: 6px;
+  color: #64748b;
+  font-size: 13px;
+}
+
+@media (max-width: 950px) {
+  .doctor-problems-hero {
+    flex-direction: column;
+  }
+
+  .doctor-problems-count-card {
+    width: 100%;
+  }
+
+  .doctor-problems-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .doctor-problems-page {
+    padding: 18px 14px 28px;
+  }
+
+  .doctor-problems-hero {
+    padding: 18px;
+  }
+
+  .doctor-problems-hero h2 {
+    font-size: 32px;
+  }
+}
