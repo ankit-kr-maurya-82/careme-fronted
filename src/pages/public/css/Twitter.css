@@ -1,0 +1,70 @@
+@import url("https://fonts.googleapis.com/css2?family=Spectral:wght@500;600&family=Work+Sans:wght@400;500;600&display=swap");
+
+.twitter {
+  padding: 60px 20px 80px;
+  background: #ffffff;
+  color: #111111;
+  font-family: "Work Sans", "Segoe UI", sans-serif;
+}
+
+.twitter-title {
+  font-size: 32px;
+  margin-bottom: 10px;
+  font-family: "Spectral", "Times New Roman", serif;
+  letter-spacing: 0.2px;
+}
+
+.twitter-subtitle {
+  max-width: 640px;
+  margin: 0 0 30px;
+  color: #4f4f4f;
+}
+
+.twitter-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 20px;
+}
+
+.twitter-card {
+  border: 1px solid #e6e6e6;
+  border-radius: 12px;
+  padding: 18px;
+  background: #ffffff;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.twitter-card:hover {
+  transform: translateY(-2px);
+  border-color: #d7d7d7;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
+}
+
+.twitter-handle {
+  margin: 0 0 8px;
+  color: #1d9bf0;
+  font-weight: 600;
+  font-size: 0.88rem;
+}
+
+.twitter-card h3 {
+  margin: 0 0 8px;
+  font-size: 1.08rem;
+}
+
+.twitter-role {
+  margin: 0 0 16px;
+  color: #616161;
+}
+
+.twitter-link {
+  text-decoration: none;
+  color: #111111;
+  font-weight: 600;
+  border-bottom: 1px solid #111111;
+}
+
+.twitter-link:hover {
+  color: #1d9bf0;
+  border-color: #1d9bf0;
+}

@@ -18,6 +18,8 @@ import Contact from "./pages/public/Contact.jsx";
 import Team from "./pages/public/Team.jsx";
 import Github, { githubInfoLoader } from "./pages/public/Github.jsx";
 import LinkedIn from "./pages/public/LinkedIn.jsx";
+import Instagram from "./pages/public/Instagram.jsx";
+import Twitter from "./pages/public/Twitter.jsx";
 
 // Auth pages
 import Register from "./pages/auth/Register.jsx";
@@ -67,6 +69,8 @@ const router = createBrowserRouter(
       <Route path="login/patient" element={<PatientLogin />} />
       <Route loader={githubInfoLoader} path="github" element={<Github />} />
       <Route path="linkedin" element={<LinkedIn />} />
+      <Route path="instagram" element={<Instagram />} />
+      <Route path="X" element={<Twitter />} />
 
       {/* Protected Patient Routes */}
       <Route element={<ProtectedRoute role="patient" />}>

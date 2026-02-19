@@ -31,9 +31,9 @@ const Footer = () => {
         <div className="footer-section">
           <h3>Social</h3>
           <ul>
-            <li><a href="#">Instagram</a></li>
-            <li><a href="#">LinkedIn</a></li>
-            <li><a href="#">Twitter</a></li>
+            <li><Link to="/instagram">Instagram</Link></li>
+            <li><Link to="/linkedin">LinkedIn</Link></li>
+            <li><Link to="/X">X</Link></li>
           </ul>
         </div>
 
@@ -42,9 +42,6 @@ const Footer = () => {
           <h3>Developer</h3>
           <ul>
             <li><Link to="/github">Github</Link></li>
-            <li><Link to="/linkedin">LinkedIn</Link></li>
-            {/* <li><a href="#">LinkedIn</a></li>
-            <li><a href="#">Twitter</a></li> */}
           </ul>
         </div>
 
