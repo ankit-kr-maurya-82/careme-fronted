@@ -1,0 +1,78 @@
+.patient-dashboard {
+  padding: 30px 20px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.patient-dashboard .dashboard-header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.patient-dashboard h1 {
+  font-size: 2rem;
+  color: #0f172a;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.patient-dashboard .role {
+  display: inline-block;
+  background: #e6f2ff;
+  color: #007bff;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.patient-dashboard .search-box {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 35px;
+}
+
+.patient-dashboard .search-box input {
+   padding: 12px 15px;
+  width: 100%;
+  max-width: 420px;
+  border-radius: 30px;
+  border: 1px solid #d1d5db;
+  font-size: 0.95rem;
+  background: #f9fafb;
+}
+
+.patient-dashboard .search-box input:focus {
+  border-color: #0ea5e9;
+  background: white;
+  outline: none;
+}
+
+/* Optional quick links */
+.patient-dashboard .quick-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+/* Card style */
+.patient-dashboard .quick-link {
+  background: white;
+  border-radius: 12px;
+  padding: 22px;
+  text-align: center;
+  font-weight: 500;
+  color: #1e293b;
+  cursor: pointer;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transition: all 0.25s ease;
+}
+
+/* Hover effect */
+.patient-dashboard .quick-link:hover {
+  border-color: #0ea5e9;
+  transform: translateY(-4px);
+  box-shadow: 0 10px 22px rgba(14,165,233,0.15);
+  color: #0284c7;
+}

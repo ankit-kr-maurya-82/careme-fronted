@@ -1,0 +1,114 @@
+.doctor-register-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #F0F9FF;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.doctor-register-card {
+  background: #ffffff;
+  padding: 38px 34px;
+  width: 380px;
+  border-radius: 10px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+}
+
+.doctor-register-card h2 {
+  text-align: center;
+  margin-bottom: 18px;
+  color: #1E3A8A;
+  font-weight: 600;
+}
+
+.error {
+  color: #dc2626;
+  background: #fee2e2;
+  padding: 8px;
+  border-radius: 6px;
+  font-size: 13px;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.doctor-register-card form {
+  display: flex;
+  flex-direction: column;
+}
+
+.doctor-register-card input {
+  margin-bottom: 14px;
+  padding: 11px 12px;
+  border-radius: 6px;
+  border: 1px solid #dbeafe;
+  font-size: 14px;
+  transition: 0.2s ease;
+}
+
+.doctor-register-card input:focus {
+  border-color: #2563EB;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
+}
+
+.doctor-register-card button {
+  padding: 11px;
+  border: none;
+  border-radius: 6px;
+  background-color: #2563EB;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.doctor-register-card button:hover {
+  background-color: #1E3A8A;
+}
+
+.doctor-register-card button:disabled {
+  background-color: #93c5fd;
+  cursor: not-allowed;
+}
+
+.doctor-register-card p {
+  margin-top: 16px;
+  text-align: center;
+  font-size: 13px;
+  color: #475569;
+}
+
+.doctor-register-card a {
+  color: #2563EB;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.doctor-register-card a:hover {
+  text-decoration: underline;
+}
+
+
+.dragon-selput {
+  margin-bottom: 14px;
+  padding: 11px 12px;
+  border-radius: 6px;
+  border: 1px solid #dbeafe;
+  font-size: 14px;
+  transition: 0.2s ease;
+  background-color: #ffffff;
+}
+
+.dragon-selput:focus {
+  border-color: #2563EB;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
+}
+@media (max-width: 420px) {
+  .doctor-register-card {
+    width: 90%;
+    padding: 26px 18px;
+  }
+}

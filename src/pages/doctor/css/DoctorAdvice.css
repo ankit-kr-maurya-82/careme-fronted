@@ -1,0 +1,176 @@
+.doctor-advice-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #eef6fb, #f8fbff);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 20px;
+}
+
+.doctor-advice-container {
+  width: 100%;
+  max-width: 900px;
+}
+
+.doctor-advice-page h2 {
+  font-size: 30px;
+  color: #1e293b;
+  font-weight: 600;
+}
+
+.doctor-advice-subtitle {
+  color: #64748b;
+  margin-bottom: 20px;
+  font-size: 17px;
+}
+
+.doctor-advice-form {
+   border-radius: 16px;
+  padding: 28px;
+  background: #ffffff;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+  border: none;
+}
+
+.doctor-advice-field {
+  margin-bottom: 18px;
+}
+
+.doctor-advice-label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: #0f172a;
+}
+
+.doctor-advice-input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  font-size: 15px;
+  transition: 0.2s;
+}
+
+.doctor-advice-input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.15);
+}
+
+.doctor-advice-textarea {
+  resize: vertical;
+}
+
+.doctor-advice-error {
+  color: #dc2626;
+  margin-bottom: 10px;
+}
+
+.doctor-advice-success {
+  color: #16a34a;
+  margin-bottom: 10px;
+}
+
+.doctor-advice-submit {
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #2563eb, #3b82f6);
+  color: white;
+  padding: 12px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.doctor-advice-submit:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.doctor-advice-list {
+  margin-top: 30px;
+}
+ 
+.doctor-advice-empty {
+  color: #666;
+}
+
+.doctor-advice-card {
+  border-radius: 14px;
+  padding: 18px;
+  margin-top: 14px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+  transition: 0.2s;
+}
+
+.doctor-advice-card:hover {
+  transform: translateY(-3px);
+}
+
+.doctor-advice-card p {
+  margin: 6px 0;
+  font-size: 15px;
+  color: #334155;
+}
+
+.doctor-advice-empty {
+  color: #64748b;
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+  .doctor-advice-container {
+    max-width: 100%;
+  }
+
+  .doctor-advice-page h2 {
+    font-size: 26px;
+  }
+
+  .doctor-advice-form {
+    padding: 22px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .doctor-advice-page {
+    padding: 25px 12px;
+    align-items: flex-start;
+  }
+
+  .doctor-advice-page h2 {
+    font-size: 22px;
+  }
+
+  .doctor-advice-subtitle {
+    font-size: 15px;
+  }
+
+  .doctor-advice-form {
+    padding: 18px;
+    border-radius: 12px;
+  }
+
+  .doctor-advice-input {
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+
+  .doctor-advice-submit {
+    width: 100%;
+    font-size: 15px;
+    padding: 12px;
+  }
+
+  .doctor-advice-card {
+    padding: 14px;
+  }
+
+  .doctor-advice-card p {
+    font-size: 14px;
+  }
+}

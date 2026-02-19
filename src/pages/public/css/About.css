@@ -1,0 +1,97 @@
+@import url("https://fonts.googleapis.com/css2?family=Spectral:wght@500;600&family=Work+Sans:wght@400;500;600&display=swap");
+
+.about {
+  padding: 60px 20px 80px;
+  background: #ffffff;
+  color: #111111;
+  font-family: "Work Sans", "Segoe UI", sans-serif;
+}
+
+.about-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: 24px;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.about-hero-text {
+  max-width: 760px;
+}
+
+.about-image {
+  width: 100%;
+  border-radius: 16px;
+  border: 1px solid #e6e6e6;
+  background: #ffffff;
+}
+
+.about-kicker {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.8rem;
+  color: #2b8a6e;
+  font-weight: 600;
+}
+
+.about-hero h1 {
+  font-family: "Spectral", "Times New Roman", serif;
+  font-size: 36px;
+  margin: 10px 0 12px;
+}
+
+.about-sub {
+  color: #5b5b5b;
+  font-size: 1rem;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+  margin-bottom: 36px;
+}
+
+.about-card {
+  border: 1px solid #e6e6e6;
+  border-radius: 12px;
+  padding: 18px;
+  background: #ffffff;
+}
+
+.about-card h3 {
+  margin: 0 0 8px;
+  font-size: 1rem;
+}
+
+.about-card p {
+  margin: 0;
+  color: #5b5b5b;
+}
+
+.about-values h2 {
+  font-family: "Spectral", "Times New Roman", serif;
+  font-size: 26px;
+  margin: 0 0 16px;
+}
+
+.values-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+}
+
+.values-row h4 {
+  margin: 0 0 6px;
+}
+
+.values-row p {
+  margin: 0;
+  color: #5b5b5b;
+}
+
+@media (max-width: 900px) {
+  .about-hero {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,22 @@
+.medicine-disclaimer {
+  margin-top: 22px;
+  border: 1px solid #f0d59e;
+  background: #fff9ea;
+  border-radius: 14px;
+  padding: 14px 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: #374151;
+}
+
+.medicine-disclaimer-icon {
+  margin-top: 2px;
+  color: #d08b06;
+  flex-shrink: 0;
+}
+
+.medicine-disclaimer p {
+  font-size: 0.97rem;
+  line-height: 1.55;
+}

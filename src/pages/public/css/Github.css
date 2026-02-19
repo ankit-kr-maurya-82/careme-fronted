@@ -1,0 +1,69 @@
+@import url("https://fonts.googleapis.com/css2?family=Spectral:wght@500;600&family=Work+Sans:wght@400;500;600&display=swap");
+
+.github {
+  padding: 60px 20px 80px;
+  background: #ffffff;
+  font-family: "Work Sans", "Segoe UI", sans-serif;
+  color: #111111;
+}
+
+.github-title {
+  font-size: 32px;
+  margin-bottom: 26px;
+  color: #111111;
+  font-family: "Spectral", "Times New Roman", serif;
+  letter-spacing: 0.2px;
+}
+
+.github-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.github-card {
+  background: #ffffff;
+  border: 1px solid #e6e6e6;
+  border-radius: 12px;
+  padding: 18px;
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.github-card:hover {
+  background: #f7f7f7;
+  border-color: #dcdcdc;
+}
+
+.github-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 1px solid #111111;
+  object-fit: cover;
+  flex: 0 0 auto;
+}
+
+.github-meta h3 {
+  margin: 0 0 6px;
+  font-size: 1rem;
+}
+
+.github-meta p {
+  margin: 0 0 10px;
+  color: #5b5b5b;
+}
+
+.github-link {
+  color: #111111;
+  text-decoration: none;
+  border-bottom: 1px solid #111111;
+  font-weight: 500;
+}
+
+.github-link:hover {
+  color: #2b8a6e;
+  border-color: #2b8a6e;
+}

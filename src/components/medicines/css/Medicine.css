@@ -1,0 +1,127 @@
+.medicine-page {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #eef4fb 0%, #f7faff 50%, #f1f5fb 100%);
+  border-radius: 16px;
+  position: relative;
+  margin: -20px;
+}
+
+.medicine-hero {
+  padding: 52px 20px 132px;
+  text-align: center;
+  color: #ffffff;
+  background: linear-gradient(100deg, #10233c 0%, #163a60 40%, #1b4978 100%);
+}
+
+.medicine-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(42, 111, 186, 0.35);
+  border: 1px solid rgba(123, 181, 243, 0.45);
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.medicine-hero h1 {
+  margin-top: 8px;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.15;
+}
+
+.medicine-hero p {
+  margin: 14px auto 0;
+  max-width: 720px;
+  font-size: clamp(1rem, 1.8vw, 1.2rem);
+  line-height: 1.45;
+  color: #d7e4f7;
+}
+
+.medicine-content {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 24px 20px 36px;
+}
+
+.medicine-grid {
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.medicine-empty-state {
+  grid-column: 1 / -1;
+  background: #ffffff;
+  border: 1px dashed #bfd0e4;
+  border-radius: 14px;
+  padding: 36px 24px;
+  text-align: center;
+  box-shadow: 0 10px 22px rgba(27, 46, 75, 0.06);
+}
+
+.medicine-empty-state h3 {
+  color: #0f243f;
+}
+
+.medicine-empty-state p {
+  margin-top: 8px;
+  color: #5f6f84;
+}
+
+.medicine-float-help {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  width: 56px;
+  height: 56px;
+  border: 0;
+  border-radius: 999px;
+  background: #1f8ae4;
+  color: #ffffff;
+  box-shadow: 0 10px 22px rgba(32, 112, 190, 0.34);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+@media (max-width: 1100px) {
+  .medicine-grid {
+    grid-template-columns: repeat(2, minmax(240px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .medicine-page {
+    border-radius: 0;
+  }
+
+  .medicine-hero {
+    padding: 30px 14px 96px;
+  }
+
+  .medicine-hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .medicine-hero p {
+    font-size: 0.96rem;
+  }
+
+  .medicine-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .medicine-float-help {
+    right: 14px;
+    bottom: 14px;
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
+  }
+}

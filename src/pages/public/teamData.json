@@ -1,0 +1,28 @@
+[
+  {
+    "name": "Ankit Kumar Maurya",
+    "role": "Web Developer",
+    "img": "Ankit.jpg"
+  },
+  {
+    "name": "Bhrantik Nagar",
+    "role": "UI/UX Designer",
+    "img": "Bhrantik.jpeg"
+  },
+  {
+    "name": "Harsh Tiwari",
+    "role": "Database Designer",
+    "img": "0.jpg"
+  },
+  {
+    "name": "Anshumaan Pandey",
+    "role": "UI Designer",
+    "img": "0.jpg"
+  },
+  {
+    "name": "Dev Sharma",
+    "role": "Database Designer",
+    "img": "0.jpg"
+  }
+]
+

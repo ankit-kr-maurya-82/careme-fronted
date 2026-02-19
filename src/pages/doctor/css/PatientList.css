@@ -1,0 +1,39 @@
+.doctor-patient-list-page {
+  padding: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.doctor-patient-list-loading {
+  padding: 20px;
+}
+
+.doctor-patient-list-error {
+  color: crimson;
+}
+
+.doctor-patient-list-empty {
+  color: #4b5563;
+}
+
+.doctor-patient-list-card {
+  border: 1px solid #d1d5db;
+  padding: 15px;
+  margin-top: 15px;
+  border-radius: 8px;
+  background: #f0f8ff;
+}
+
+.doctor-patient-list-btn {
+  margin-top: 10px;
+  padding: 8px 12px;
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+  background: #1d4ed8;
+  color: #fff;
+}
+
+.doctor-patient-list-btn:hover {
+  background: #1e40af;
+}

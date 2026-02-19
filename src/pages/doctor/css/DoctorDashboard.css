@@ -1,0 +1,80 @@
+/* DoctorDashboard.css */
+.doctor-dashboard {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #eef6fb, #f8fbff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
+
+.doctor-dashboard > div {
+  width: 100%;
+  max-width: 900px;
+  background: #ffffff;
+  padding: 40px 50px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.doctor-dashboard h1 {
+  color: #1e293b;
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.doctor-dashboard p {
+  font-size: 17px;
+  margin: 6px 0;
+  color: #475569;
+}
+
+.dashboard-buttons {
+  margin-top: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.dashboard-buttons button {
+  padding: 14px 22px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #2563eb, #3b82f6);
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.25s ease;
+}
+ 
+.dashboard-buttons button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.3);
+}
+
+.doctor-dashboard-loading {
+  text-align: center;
+  font-size: 20px;
+  margin-top: 50px;
+}
+
+.doctor-dashboard-error {
+  color: crimson;
+  font-weight: 500;
+}
+
+.doctor-dashboard-patient-section {
+  margin-top: 30px;
+  padding: 22px;
+  border-radius: 12px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+}
+
+.doctor-dashboard-patient-section h2 {
+  font-size: 22px;
+  color: #0f172a;
+  margin-bottom: 8px;
+}

@@ -1,0 +1,140 @@
+.patient-appointments-page {
+  padding: 24px 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.patient-appointments-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+}
+
+.patient-appointments-head h2 {
+  margin: 0;
+  font-size: 28px;
+}
+
+.patient-appointments-count {
+  border-radius: 999px;
+  background: #eff6ff;
+  color: #1d4ed8;
+  padding: 8px 12px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.patient-appointments-empty {
+  border: 1px dashed #d1d5db;
+  border-radius: 12px;
+  padding: 20px;
+  color: #4b5563;
+  background: #f9fafb;
+}
+
+.patient-appointments-empty h3 {
+  margin: 0;
+  color: #111827;
+}
+
+.patient-appointments-empty p {
+  margin: 8px 0 0;
+}
+
+.patient-appointments-loading {
+  padding: 20px;
+}
+
+.patient-appointments-error {
+  margin-bottom: 12px;
+  color: #b91c1c;
+}
+
+.patient-appointments-list {
+  display: grid;
+  gap: 14px;
+}
+
+.patient-appointments-card {
+  border: 1px solid #e5e7eb;
+  background: #fff;
+  border-radius: 14px;
+  padding: 16px;
+}
+
+.patient-appointments-card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.patient-appointments-card-head h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.patient-appointments-status {
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 4px 10px;
+}
+
+.patient-appointments-status.scheduled {
+  background: #ecfdf3;
+  color: #166534;
+}
+
+.patient-appointments-status.cancelled {
+  background: #fef2f2;
+  color: #b91c1c;
+}
+
+.patient-appointments-grid {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+}
+
+.patient-appointments-grid p {
+  margin: 0;
+  display: grid;
+  gap: 4px;
+}
+
+.patient-appointments-grid span {
+  color: #6b7280;
+  font-size: 12px;
+}
+
+.patient-appointments-grid strong {
+  color: #111827;
+  font-size: 14px;
+}
+
+.patient-appointments-reason {
+  margin: 12px 0 0;
+  color: #374151;
+}
+
+.patient-appointments-reason span {
+  font-weight: 700;
+}
+
+.patient-appointments-cancel-btn {
+  margin-top: 12px;
+  border: 0;
+  background: #b91c1c;
+  color: #fff;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}

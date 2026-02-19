@@ -1,0 +1,104 @@
+.medicine-card {
+  border: 1px solid #d5deea;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 18px;
+  text-align: left;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.medicine-card:hover {
+  transform: translateY(-2px);
+  border-color: #8ab8ee;
+  box-shadow: 0 8px 18px rgba(28, 52, 80, 0.12);
+}
+
+.medicine-card-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.medicine-card-pill-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: #e2efff;
+  color: #2078de;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.medicine-card-heading {
+  flex: 1;
+  min-width: 0;
+}
+
+.medicine-card-heading h3 {
+  font-size: 1.1rem;
+  color: #0c1d34;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.medicine-card-heading p {
+  margin-top: 2px;
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+.medicine-card-book {
+  color: #9ba9bc;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.medicine-card-description {
+  margin-top: 10px;
+  color: #4f6077;
+  line-height: 1.5;
+  min-height: 64px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-size: 0.95rem;
+}
+
+.medicine-card-tags {
+  margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.medicine-tag {
+  border-radius: 999px;
+  padding: 5px 10px;
+  font-size: 0.8rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.medicine-tag-rose {
+  background: #ffeaf0;
+  color: #d63b61;
+}
+
+.medicine-tag-amber {
+  background: #fff2dd;
+  color: #d48a0b;
+}
+
+.medicine-tag-teal {
+  background: #ddf8f3;
+  color: #168f86;
+}

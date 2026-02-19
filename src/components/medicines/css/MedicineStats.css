@@ -1,0 +1,62 @@
+.medicine-stats-row {
+  margin: -74px auto 0;
+  max-width: 980px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  padding: 0 20px;
+}
+
+.medicine-stat-card {
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #dde6f1;
+  box-shadow: 0 8px 18px rgba(17, 31, 48, 0.09);
+  text-align: center;
+  padding: 18px 16px;
+}
+
+.medicine-stat-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.medicine-stat-icon-blue {
+  background: #e2efff;
+  color: #2078de;
+}
+
+.medicine-stat-icon-rose {
+  background: #ffe9ee;
+  color: #db4465;
+}
+
+.medicine-stat-icon-green {
+  background: #e8f9ee;
+  color: #22a85b;
+}
+
+.medicine-stat-card h3 {
+  font-size: 1.8rem;
+  margin-top: 10px;
+  color: #0c1d34;
+}
+
+.medicine-stat-card p {
+  margin-top: 4px;
+  color: #5f6f84;
+  font-size: 0.92rem;
+}
+
+@media (max-width: 768px) {
+  .medicine-stats-row {
+    margin-top: -56px;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}

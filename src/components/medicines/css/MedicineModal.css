@@ -1,0 +1,249 @@
+.medicine-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(7, 15, 28, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  z-index: 1200;
+}
+
+.medicine-modal {
+  width: min(920px, 100%);
+  max-height: calc(100vh - 32px);
+  overflow: auto;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 18px 35px rgba(7, 17, 31, 0.3);
+}
+
+.medicine-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 18px 20px;
+  border-bottom: 1px solid #e5edf6;
+}
+
+.medicine-modal-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.medicine-modal-pill-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: #e2efff;
+  color: #2078de;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+}
+
+.medicine-modal-title-wrap h2 {
+  color: #0c1d34;
+  font-size: 1.15rem;
+}
+
+.medicine-modal-title-wrap p {
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+.medicine-modal-close {
+  border: 1px solid #d5deea;
+  background: #ffffff;
+  color: #51647e;
+  border-radius: 10px;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+}
+
+.medicine-modal-tabs {
+  padding: 14px 16px 0;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.medicine-modal-tab {
+  border: 1px solid #d7e2ef;
+  background: #f4f8fd;
+  color: #4f6077;
+  border-radius: 10px;
+  min-height: 36px;
+  padding: 0 8px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 0.78rem;
+}
+
+.medicine-modal-tab.active {
+  background: #1f8ae4;
+  border-color: #1f8ae4;
+  color: #ffffff;
+}
+
+.medicine-modal-content {
+  padding: 16px;
+}
+
+.medicine-modal-pane {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.medicine-modal-pane > p {
+  color: #334155;
+  line-height: 1.55;
+}
+
+.medicine-box {
+  border: 1px solid #dce7f4;
+  background: #f7fbff;
+  border-radius: 12px;
+  padding: 12px;
+}
+
+.medicine-box-blue {
+  background: #e9f3ff;
+}
+
+.medicine-box-rose {
+  background: #fff0f3;
+  border-color: #ffd7e0;
+}
+
+.medicine-box h4 {
+  color: #0f243f;
+  margin-bottom: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.medicine-box p,
+.medicine-box li {
+  color: #4a5f78;
+  line-height: 1.45;
+}
+
+.medicine-box ul {
+  padding-left: 18px;
+}
+
+.medicine-list-item {
+  border-radius: 12px;
+  border: 1px solid #dce7f4;
+  background: #f8fbff;
+  padding: 10px 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.medicine-list-item-green {
+  background: #ebf9ef;
+}
+
+.medicine-list-item-green span {
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  background: #d3f1de;
+  color: #1d8e4b;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.medicine-list-item-rose {
+  background: #fff0f4;
+  border-color: #ffd6e0;
+}
+
+.medicine-list-item-rose svg {
+  color: #d63b61;
+}
+
+.medicine-list-item-amber {
+  background: #fff6e8;
+  border-color: #ffe0af;
+}
+
+.medicine-list-item-amber svg {
+  color: #d08b06;
+}
+
+.medicine-list-item-teal {
+  background: #e9fcf9;
+  border-color: #c4f1e8;
+}
+
+.medicine-list-item-teal svg {
+  color: #168f86;
+}
+
+.medicine-list-item p {
+  color: #334155;
+}
+
+.medicine-chip-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.medicine-chip {
+  border-radius: 999px;
+  padding: 5px 10px;
+  background: #eaf2fd;
+  color: #31557f;
+  font-size: 0.84rem;
+}
+
+.medicine-muted {
+  color: #66778e;
+}
+
+.medicine-note {
+  color: #63758d;
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .medicine-modal {
+    border-radius: 12px;
+  }
+
+  .medicine-modal-header {
+    padding: 14px;
+  }
+
+  .medicine-modal-tabs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: 10px 14px 0;
+  }
+
+  .medicine-modal-tab {
+    min-height: 34px;
+    font-size: 0.76rem;
+  }
+
+  .medicine-modal-content {
+    padding: 14px;
+  }
+}
