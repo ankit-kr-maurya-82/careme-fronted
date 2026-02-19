@@ -17,6 +17,7 @@ import About from "./pages/public/About.jsx";
 import Contact from "./pages/public/Contact.jsx";
 import Team from "./pages/public/Team.jsx";
 import Github, { githubInfoLoader } from "./pages/public/Github.jsx";
+import LinkedIn from "./pages/public/LinkedIn.jsx";
 
 // Auth pages
 import Register from "./pages/auth/Register.jsx";
@@ -65,6 +66,7 @@ const router = createBrowserRouter(
       <Route path="login/doctor" element={<DoctorLogin />} />
       <Route path="login/patient" element={<PatientLogin />} />
       <Route loader={githubInfoLoader} path="github" element={<Github />} />
+      <Route path="linkedin" element={<LinkedIn />} />
 
       {/* Protected Patient Routes */}
       <Route element={<ProtectedRoute role="patient" />}>

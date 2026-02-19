@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React from "react";
 import { Link } from "react-router-dom";
 import "./css/Footer.css";
 
@@ -42,6 +42,7 @@ const Footer = () => {
           <h3>Developer</h3>
           <ul>
             <li><Link to="/github">Github</Link></li>
+            <li><Link to="/linkedin">LinkedIn</Link></li>
             {/* <li><a href="#">LinkedIn</a></li>
             <li><a href="#">Twitter</a></li> */}
           </ul>
@@ -59,7 +60,7 @@ const Footer = () => {
       </div>
 
       <div className="footer-bottom">
-        � {new Date().getFullYear()} CareMe. All Rights Reserved.
+        © {new Date().getFullYear()} CareMe. All Rights Reserved.
       </div>
     </footer>
   );
