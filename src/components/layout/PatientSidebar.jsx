@@ -62,49 +62,49 @@ const PatientSidebar = () => {
         <ul className="menu-list">
           <li>
             <NavLink to="/patient/dashboard" onClick={closeSidebar}>
-              <FiHome className="menu-icon" />
+              <FiHome className="patient-menu-icon" />
               Dashboard
             </NavLink>
           </li>
           <li>
             <NavLink to="/patient/appointments" onClick={closeSidebar}>
-              <FiBookOpen className="menu-icon" />
+              <FiBookOpen className="patient-menu-icon" />
               Appointments
             </NavLink>
           </li>
           <li>
             <NavLink to="/patient/profile" onClick={closeSidebar}>
-              <FiUser className="menu-icon" />
+              <FiUser className="patient-menu-icon" />
               Profile
             </NavLink>
           </li>
           <li>
             <NavLink to="/patient/add-problem" onClick={closeSidebar}>
-              <FiFileText className="menu-icon" />
+              <FiFileText className="patient-menu-icon" />
               Add Problem
             </NavLink>
           </li>
           <li>
             <NavLink to="/patient/advice" onClick={closeSidebar}>
-              <FiFileText className="menu-icon" />
+              <FiFileText className="patient-menu-icon" />
               Doctor Advice
             </NavLink>
           </li>
           <li>
             <NavLink to="/patient/reminder" onClick={closeSidebar}>
-              <FiBarChart2 className="menu-icon" />
+              <FiBarChart2 className="patient-menu-icon" />
               Reminders
             </NavLink>
           </li>
           <li>
             <NavLink to="/patient/medicines" onClick={closeSidebar}>
-              <FiBookOpen className="menu-icon" />
+              <FiBookOpen className="patient-menu-icon" />
               Medicine
             </NavLink>
           </li>
           <li>
             <NavLink to="/patient/my-problems" onClick={closeSidebar}>
-              <FiFileText className="menu-icon" />
+              <FiFileText className="patient-menu-icon" />
               My Problems
             </NavLink>
           </li>
@@ -116,7 +116,7 @@ const PatientSidebar = () => {
         <ul className="menu-list">
           <li>
             <NavLink to="/patient/doctors" onClick={closeSidebar}>
-              <FiUsers className="menu-icon" />
+              <FiUsers className="patient-menu-icon" />
               Find Doctors
               <span className="status-dot" />
             </NavLink>
