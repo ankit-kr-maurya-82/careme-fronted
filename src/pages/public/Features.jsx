@@ -8,7 +8,7 @@ const coreFeatures = [
     description:
       "Patients can submit symptoms, history, and concerns in a structured format so doctors get complete context quickly.",
   },
-  {
+  { 
     title: "Doctor Advice Workflow",
     description:
       "Doctors review reported problems and provide medicines, tests, and diet recommendations from one dashboard.",
@@ -60,58 +60,87 @@ const trustHighlights = [
   "Scalable architecture for future hospital integrations",
 ];
 
+const featureStats = [
+  { value: "24/7", label: "Workflow access" },
+  { value: "6+", label: "Core modules" },
+  { value: "99%", label: "Record consistency" },
+];
+
 const Features = () => {
   return (
     <section className="features-page">
-      <div className="features-hero">
-        <p className="features-kicker">CareMe Features</p>
-        <h1>Complete hospital-care workflow in one website.</h1>
-        <p className="features-sub">
-          CareMe connects patients and doctors through a practical digital flow:
-          report problems, review advice, manage medicines, and maintain secure
-          records.
-        </p>
-      </div>
+      <div className="features-shell">
+        <div className="features-hero-wrap">
+          <div className="features-hero">
+            <p className="features-kicker">CareMe Features</p>
+            <h1>Complete hospital-care workflow in one website.</h1>
+            <p className="features-sub">
+              CareMe connects patients and doctors through a practical digital
+              flow: report problems, review advice, manage medicines, and
+              maintain secure records.
+            </p>
+          </div>
 
-      <div className="features-graph">
-        <img
-          src={featuresImage}
-          alt="CareMe feature objectives"
-          className="features-image"
-        />
-      </div>
-
-      <div className="features-list">
-        {coreFeatures.map((item) => (
-          <article key={item.title} className="feature-item">
-            <h3>{item.title}</h3>
-            <p>{item.description}</p>
+          <article className="features-quick-card">
+            <h3>Quick Access</h3>
+            <p>Everything from case submission to follow-up in one flow.</p>
+            <div className="features-pill-list">
+              <span>Problem reporting</span>
+              <span>Doctor guidance</span>
+              <span>Medicine info</span>
+            </div>
           </article>
-        ))}
-      </div>
+        </div>
 
-      <div className="feature-sections">
-        <div className="feature-role-grid">
-          {roleBenefits.map((group) => (
-            <article key={group.role} className="feature-role-card">
-              <h3>{group.role}</h3>
-              <ul>
-                {group.points.map((point) => (
-                  <li key={point}>{point}</li>
-                ))}
-              </ul>
+        <div className="features-stats">
+          {featureStats.map((item) => (
+            <div key={item.label} className="features-stat-box">
+              <span>{item.value}</span>
+              <p>{item.label}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="features-graph">
+          <img
+            src={featuresImage}
+            alt="CareMe feature objectives"
+            className="features-image"
+          />
+        </div>
+
+        <div className="features-list">
+          {coreFeatures.map((item) => (
+            <article key={item.title} className="feature-item">
+              <h3>{item.title}</h3>
+              <p>{item.description}</p>
             </article>
           ))}
         </div>
 
-        <article className="feature-trust-card">
-          <h3>Why this matters</h3>
-          <ul>
-            {trustHighlights.map((item) => (
-              <li key={item}>{item}</li>
+        <div className="feature-sections">
+          <div className="feature-role-grid">
+            {roleBenefits.map((group) => (
+              <article key={group.role} className="feature-role-card">
+                <h3>{group.role}</h3>
+                <ul>
+                  {group.points.map((point) => (
+                    <li key={point}>{point}</li>
+                  ))}
+                </ul>
+              </article>
             ))}
-          </ul>
-        </article>
+          </div>
+
+          <article className="feature-trust-card">
+            <h3>Why this matters</h3>
+            <ul>
+              {trustHighlights.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </article>
+        </div>
       </div>
     </section>
   );
