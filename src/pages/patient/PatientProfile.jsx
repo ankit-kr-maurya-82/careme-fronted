@@ -9,42 +9,76 @@ const PatientProfile = () => {
 
   if (!user) {
     return (
-      <div className="profile-container">
-        <h2>Please login first</h2>
-      </div>
+      <section className="patient-profile-page">
+        <div className="patient-profile-shell">
+          <p className="patient-profile-feedback">Please login first.</p>
+        </div>
+      </section>
     );
   }
 
+  const profileFields = [
+    { label: "Username", value: user.username || "Not set" },
+    { label: "Full Name", value: user.fullName || "Not set" },
+    { label: "Email", value: user.email || "Not set" },
+    { label: "Role", value: user.role || "patient" },
+    { label: "Gender", value: user.gender || "Not set" },
+  ];
+
   return (
-    <div className="profile-container">
-      <div className="profile-card">
+    <section className="patient-profile-page">
+      <div className="patient-profile-shell">
+        <div className="patient-profile-hero">
+          <div>
+            <p className="patient-profile-kicker">Patient Account</p>
+            <h2 className="patient-profile-title">My Profile</h2>
+            <p className="patient-profile-subtitle">
+              Keep your profile details updated to receive accurate care and communication.
+            </p>
+          </div>
 
-        <div className="profile-avatar">
-          {user.username?.charAt(0).toUpperCase()}
+          <div className="patient-profile-avatar-card">
+            <div className="patient-profile-avatar">
+              {(user.fullName || user.username || "P").charAt(0).toUpperCase()}
+            </div>
+            <p>{user.fullName || user.username || "Patient"}</p>
+            <small>{user.email || "No email"}</small>
+          </div>
         </div>
 
-        <h2 className="profile-title">My Profile</h2>
-
-        <div className="profile-info">
-          <p><strong>Username:</strong> {user.username}</p>
-          <p><strong>Email:</strong> {user.email}</p>
-          <p><strong>Role:</strong> {user.role}</p>
-          <p><strong>Gender:</strong> {user.gender || "Not set"}</p>
+        <div className="patient-profile-summary">
+          <div className="patient-profile-summary-card">
+            <span>{user.role || "patient"}</span>
+            <small>Account type</small>
+          </div>
+          <div className="patient-profile-summary-card">
+            <span>{user.gender || "Not set"}</span>
+            <small>Gender</small>
+          </div>
+          <div className="patient-profile-summary-card">
+            <span>{user.fullName ? "Complete" : "Partial"}</span>
+            <small>Profile state</small>
+          </div>
         </div>
 
-        <button
-          className="profile-btn"
-          onClick={() => setShowModal(true)}
-        >
-          Edit Profile
-        </button>
+        <div className="patient-profile-card">
+          <div className="patient-profile-grid">
+            {profileFields.map((field) => (
+              <div key={field.label} className="patient-profile-item">
+                <small>{field.label}</small>
+                <p>{field.value}</p>
+              </div>
+            ))}
+          </div>
 
+          <button className="patient-profile-btn" onClick={() => setShowModal(true)}>
+            Edit Profile
+          </button>
+        </div>
       </div>
 
-      {showModal && (
-        <EditProfileModal onClose={() => setShowModal(false)} />
-      )}
-    </div>
+      {showModal ? <EditProfileModal onClose={() => setShowModal(false)} /> : null}
+    </section>
   );
 };
 

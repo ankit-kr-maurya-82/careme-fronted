@@ -1,0 +1,303 @@
+@import url("https://fonts.googleapis.com/css2?family=Spectral:wght@500;600&family=Work+Sans:wght@400;500;600&display=swap");
+
+.patient-advice-page {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 100% 0%, #dbeafe 0, transparent 35%),
+    linear-gradient(160deg, #f7fbff 0%, #eef6fb 100%);
+  padding: 28px 20px 40px;
+  font-family: "Work Sans", "Segoe UI", sans-serif;
+  color: #0f172a;
+}
+
+.patient-advice-shell {
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+.patient-advice-loading,
+.patient-advice-error {
+  margin: 24px;
+}
+
+.patient-advice-error {
+  color: #b91c1c;
+}
+
+.patient-advice-hero {
+  border: 1px solid #d5e4df;
+  border-radius: 20px;
+  background: #ffffff;
+  padding: 24px;
+  margin-bottom: 14px;
+}
+
+.patient-advice-kicker {
+  margin: 0;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: #0f766e;
+  font-weight: 700;
+}
+
+.patient-advice-hero h2 {
+  margin: 10px 0;
+  font-size: 44px;
+  line-height: 1.1;
+  font-family: "Spectral", "Times New Roman", serif;
+}
+
+.patient-advice-subtitle {
+  margin: 0;
+  max-width: 760px;
+  color: #475569;
+  line-height: 1.6;
+}
+
+.patient-advice-layout {
+  display: grid;
+  grid-template-columns: 320px minmax(0, 1fr);
+  gap: 14px;
+}
+
+.patient-advice-panel {
+  position: sticky;
+  top: 18px;
+  align-self: start;
+  border: 1px solid #d5e4df;
+  border-radius: 20px;
+  background: #ffffff;
+  padding: 14px;
+  display: grid;
+  gap: 12px;
+}
+
+.patient-advice-count {
+  border: 1px solid #dbe7e3;
+  border-radius: 14px;
+  background: #f8fcfa;
+  padding: 14px 16px;
+}
+
+.patient-advice-count span {
+  display: block;
+  font-size: 36px;
+  line-height: 1;
+  font-family: "Spectral", "Times New Roman", serif;
+}
+
+.patient-advice-count small {
+  color: #64748b;
+  font-size: 13px;
+}
+
+.patient-advice-summary {
+  display: grid;
+  gap: 10px;
+}
+
+.patient-advice-summary-card {
+  border: 1px solid #e2ebe8;
+  border-radius: 12px;
+  background: #ffffff;
+  padding: 12px 14px;
+}
+
+.patient-advice-summary-card span {
+  display: block;
+  font-size: 24px;
+  line-height: 1;
+  font-family: "Spectral", "Times New Roman", serif;
+}
+
+.patient-advice-summary-card small {
+  color: #64748b;
+  font-size: 12px;
+}
+
+.patient-advice-toolbar {
+  border: 1px solid #e2ebe8;
+  border-radius: 12px;
+  background: #ffffff;
+  padding: 12px;
+  display: grid;
+  gap: 10px;
+}
+
+.patient-advice-toolbar label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.patient-advice-search {
+  width: 100%;
+  border: 1px solid #d5e4df;
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 14px;
+  outline: none;
+}
+
+.patient-advice-search:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
+}
+
+.patient-advice-filters {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.patient-advice-filter-btn {
+  border: 1px solid #d5e4df;
+  border-radius: 10px;
+  background: #ffffff;
+  padding: 8px 10px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #334155;
+  cursor: pointer;
+}
+
+.patient-advice-filter-btn.active {
+  background: #2563eb;
+  border-color: #2563eb;
+  color: #ffffff;
+}
+
+.patient-advice-main {
+  border: 1px solid #d5e4df;
+  border-radius: 20px;
+  background: #ffffff;
+  padding: 14px;
+}
+
+.patient-advice-empty {
+  border: 1px solid #d5e4df;
+  border-radius: 12px;
+  padding: 14px;
+  color: #475569;
+  background: #f8fafc;
+}
+
+.patient-advice-feed {
+  display: grid;
+  gap: 12px;
+}
+
+.patient-advice-card {
+  border: 1px solid #e3ece8;
+  border-radius: 14px;
+  background: #ffffff;
+  padding: 14px;
+  position: relative;
+}
+
+.patient-advice-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 14px;
+  bottom: 14px;
+  width: 3px;
+  border-radius: 2px;
+  background: #93c5fd;
+}
+
+.patient-advice-card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+  padding-left: 10px;
+  margin-bottom: 8px;
+}
+
+.patient-advice-card h3 {
+  margin: 0;
+  font-size: 24px;
+  line-height: 1.2;
+  font-family: "Spectral", "Times New Roman", serif;
+}
+
+.patient-advice-doctor {
+  margin: 4px 0 0;
+  font-size: 13px;
+  color: #64748b;
+}
+
+.patient-advice-message {
+  margin: 0 0 10px;
+  padding-left: 10px;
+  color: #334155;
+  line-height: 1.6;
+}
+
+.patient-advice-meta {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding-left: 10px;
+}
+
+.patient-advice-meta p {
+  margin: 0;
+  color: #64748b;
+  font-size: 13px;
+}
+
+.tag {
+  border-radius: 999px;
+  padding: 5px 10px;
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.tag.followup {
+  background: #eff6ff;
+  color: #1d4ed8;
+}
+
+.tag.general {
+  background: #f1f5f9;
+  color: #334155;
+}
+
+@media (max-width: 980px) {
+  .patient-advice-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .patient-advice-panel {
+    position: static;
+  }
+}
+
+@media (max-width: 700px) {
+  .patient-advice-page {
+    padding: 18px 14px 28px;
+  }
+
+  .patient-advice-hero {
+    padding: 18px;
+  }
+
+  .patient-advice-hero h2 {
+    font-size: 34px;
+  }
+
+  .patient-advice-main,
+  .patient-advice-panel {
+    padding: 12px;
+  }
+
+  .patient-advice-filters {
+    grid-template-columns: 1fr;
+  }
+}
