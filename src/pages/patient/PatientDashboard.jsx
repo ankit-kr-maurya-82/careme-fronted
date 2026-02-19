@@ -17,7 +17,6 @@ const PatientDashboard = () => {
       {/* Header */}
       <div className="dashboard-header">
         <h1>Welcome {user.username ?? "Patient"} 👋</h1>
-        <div className="role">Your role: {user.role ?? "Patient"}</div>
       </div>
 
       {/* Search Box */}

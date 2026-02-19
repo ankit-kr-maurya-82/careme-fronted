@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import api from "../../api/axios";
+import "./css/AllProblems.css";
 
 const AllProblems = () => {
   const [problems, setProblems] = useState([]);
@@ -35,35 +36,61 @@ const AllProblems = () => {
     }
   };
 
-  if (loading) return <h3>Loading problems...</h3>;
+  if (loading) return <h3 className="doctor-problems-loading">Loading problems...</h3>;
 
   return (
-    <div style={{ padding: "20px" }}>
-      <h2>All Problems {patientId && `(Patient ID: ${patientId})`}</h2>
-      {problems.length === 0 ? (
-        <p>No problems found.</p>
-      ) : (
-        problems.map((p) => (
-          <div
-            key={p._id}
-            style={{
-              border: "1px solid #ccc",
-              padding: "15px",
-              marginTop: "15px",
-              borderRadius: "8px",
-              background: "#f9f9f9",
-            }}
-          >
-            <p><strong>Patient:</strong> {p.patient?.fullName || p.patient?.username}</p>
-            <p><strong>Patient Email:</strong> {p.patient?.email}</p>
-            <p><strong>Title:</strong> {p.title}</p>
-            <p><strong>Description:</strong> {p.description}</p>
-            <p><strong>Status:</strong> {p.status}</p>
-            <small>Submitted on: {new Date(p.createdAt).toLocaleDateString()}</small>
+    <section className="doctor-problems-page">
+      <div className="doctor-problems-shell">
+        <div className="doctor-problems-hero">
+          <div>
+            <p className="doctor-problems-kicker">Doctor Workspace</p>
+            <h2>All Problems</h2>
+            <p className="doctor-problems-subtitle">
+              Review submitted patient cases and track their current status.
+            </p>
+            {patientId ? (
+              <p className="doctor-problems-filter">
+                Filtered by patient: <strong>{patientId}</strong>
+              </p>
+            ) : null}
           </div>
-        ))
-      )}
-    </div>
+          <div className="doctor-problems-count-card">
+            <span>{problems.length}</span>
+            <small>Cases found</small>
+          </div>
+        </div>
+
+        {problems.length === 0 ? (
+          <p className="doctor-problems-empty">No problems found.</p>
+        ) : (
+          <div className="doctor-problems-grid">
+            {problems.map((p) => (
+              <article key={p._id} className="doctor-problems-card">
+                <div className="doctor-problems-card-head">
+                  <h3>{p.title || "Untitled Problem"}</h3>
+                  <span className={`doctor-problems-status ${String(p.status || "").toLowerCase()}`}>
+                    {p.status || "Unknown"}
+                  </span>
+                </div>
+
+                <p>
+                  <strong>Patient:</strong> {p.patient?.fullName || p.patient?.username || "Unknown Patient"}
+                </p>
+                <p>
+                  <strong>Patient Email:</strong> {p.patient?.email || "Not available"}
+                </p>
+                <p>
+                  <strong>Description:</strong> {p.description || "No description provided."}
+                </p>
+                <p className="doctor-problems-date">
+                  Submitted on: {new Date(p.createdAt).toLocaleDateString()}
+                </p>
+              </article>
+            ))}
+          </div>
+        )}
+      </div>
+    </section>
   );
 };
 

@@ -30,37 +30,102 @@ const DoctorProfile = () => {
 
   if (!user) {
     return (
-      <div className="doctor-profile-container">
-        <h2>Please login first</h2>
+      <div className="doctor-profile-page">
+        <div className="doctor-profile-shell">
+          <p className="doctor-profile-feedback">Please login first.</p>
+        </div>
       </div>
     );
   }
 
-  if (loading) return <p className="doctor-profile-message">Loading profile...</p>;
-  if (error) return <p className="doctor-profile-error">{error}</p>;
-  if (!doctor) return <p className="doctor-profile-message">No doctor data found.</p>;
+  if (loading) {
+    return (
+      <div className="doctor-profile-page">
+        <div className="doctor-profile-shell">
+          <p className="doctor-profile-feedback">Loading profile...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="doctor-profile-page">
+        <div className="doctor-profile-shell">
+          <p className="doctor-profile-feedback doctor-profile-error">{error}</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (!doctor) {
+    return (
+      <div className="doctor-profile-page">
+        <div className="doctor-profile-shell">
+          <p className="doctor-profile-feedback">No doctor data found.</p>
+        </div>
+      </div>
+    );
+  }
+
+  const profileFields = [
+    { label: "Full Name", value: doctor.fullName || "Not set" },
+    { label: "Username", value: doctor.username || "Not set" },
+    { label: "Email", value: doctor.email || "Not set" },
+    { label: "Specialty", value: doctor.specialty || "Not set" },
+    { label: "Phone", value: doctor.phone || "Not set" },
+    { label: "Gender", value: doctor.gender || "Not set" },
+  ];
 
   return (
-    <div className="doctor-profile-container">
-      <div className="doctor-card">
-        <div className="doctor-avatar">
-          {(doctor.fullName || doctor.username || "D").charAt(0).toUpperCase()}
+    <div className="doctor-profile-page">
+      <div className="doctor-profile-shell">
+        <div className="doctor-profile-hero">
+          <div>
+            <p className="doctor-profile-kicker">Doctor Workspace</p>
+            <h2 className="doctor-profile-title">My Profile</h2>
+            <p className="doctor-profile-subtitle">
+              Keep your details updated so patients receive accurate information.
+            </p>
+          </div>
+
+          <div className="doctor-profile-avatar-card">
+            <div className="doctor-avatar">
+              {(doctor.fullName || doctor.username || "D").charAt(0).toUpperCase()}
+            </div>
+            <p>{doctor.fullName || doctor.username || "Doctor"}</p>
+          </div>
         </div>
 
-        <h2 className="doctor-profile-title">My Profile</h2>
-
-        <div className="doctor-profile-info">
-          <p><strong>Full Name:</strong> {doctor.fullName || "Not set"}</p>
-          <p><strong>Username:</strong> {doctor.username || "Not set"}</p>
-          <p><strong>Email:</strong> {doctor.email}</p>
-          <p><strong>Specialty:</strong> {doctor.specialty || "Not set"}</p>
-          <p><strong>Phone:</strong> {doctor.phone || "Not set"}</p>
-          <p><strong>Gender:</strong> {doctor.gender || "Not set"}</p>
+        <div className="doctor-profile-summary">
+          <div className="doctor-profile-summary-card">
+            <span>{doctor.specialty || "General"}</span>
+            <small>Specialty</small>
+          </div>
+          <div className="doctor-profile-summary-card">
+            <span>{doctor.gender || "Not set"}</span>
+            <small>Gender</small>
+          </div>
+          <div className="doctor-profile-summary-card">
+            <span>{doctor.phone ? "Added" : "Missing"}</span>
+            <small>Phone status</small>
+          </div>
         </div>
 
-        <button className="doctor-profile-btn" onClick={() => setShowModal(true)}>
-          Edit Profile
-        </button>
+        <div className="doctor-card">
+          <div className="doctor-profile-info-grid">
+            {profileFields.map((field) => (
+              <div key={field.label} className="doctor-profile-info-item">
+                <small>{field.label}</small>
+                <p>{field.value}</p>
+              </div>
+            ))}
+          </div>
+
+          <button className="doctor-profile-btn" onClick={() => setShowModal(true)}>
+            Edit Profile
+          </button>
+        </div>
       </div>
 
       {showModal ? (

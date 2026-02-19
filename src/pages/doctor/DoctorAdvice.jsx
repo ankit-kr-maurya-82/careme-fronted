@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import api from "../../api/axios";
 import "./css/DoctorAdvice.css";
 
@@ -10,13 +10,14 @@ const DoctorAdvice = () => {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const [sentAdvice, setSentAdvice] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
   const [form, setForm] = useState({
     patientId: "",
     title: "",
     message: "",
     followUpDate: "",
   });
- 
+
   useEffect(() => {
     const fetchPatients = async () => {
       try {
@@ -90,35 +91,106 @@ const DoctorAdvice = () => {
     }
   };
 
+  const adviceSummary = useMemo(() => {
+    const withFollowUp = sentAdvice.filter((advice) => Boolean(advice.followUpDate)).length;
+    const upcomingFollowUps = sentAdvice.filter((advice) => {
+      if (!advice.followUpDate) return false;
+      return new Date(advice.followUpDate) >= new Date();
+    }).length;
+
+    return {
+      total: sentAdvice.length,
+      withFollowUp,
+      upcomingFollowUps,
+    };
+  }, [sentAdvice]);
+
+  const filteredAdvice = useMemo(() => {
+    const query = searchTerm.trim().toLowerCase();
+    if (!query) return sentAdvice;
+
+    return sentAdvice.filter((advice) => {
+      const patientName = (advice.patient?.fullName || advice.patient?.username || "").toLowerCase();
+      const title = (advice.title || "").toLowerCase();
+      const message = (advice.message || "").toLowerCase();
+
+      return (
+        patientName.includes(query) ||
+        title.includes(query) ||
+        message.includes(query)
+      );
+    });
+  }, [sentAdvice, searchTerm]);
+
   if (loadingPatients) return <h3 className="doctor-advice-loading">Loading patients...</h3>;
 
   return (
-      <div className="doctor-advice-page">
-        <div className="doctor-advice-container">
-        <h2>Advice to Patients</h2>
-        <p className="doctor-advice-subtitle">
-          Select a patient and provide clear medical guidance.
-        </p>
+    <div className="doctor-advice-page">
+      <div className="doctor-advice-shell">
+        <div className="doctor-advice-hero">
+          <div>
+            <p className="doctor-advice-kicker">Doctor Workspace</p>
+            <h2>Advice to Patients</h2>
+            <p className="doctor-advice-subtitle">
+              Select a patient and provide clear medical guidance.
+            </p>
+          </div>
+          <div className="doctor-advice-hero-stat">
+            <span>{adviceSummary.total}</span>
+            <small>Total advice notes</small>
+          </div>
+        </div>
+
+        <div className="doctor-advice-summary">
+          <div className="doctor-advice-summary-card">
+            <span>{patients.length}</span>
+            <small>Patients loaded</small>
+          </div>
+          <div className="doctor-advice-summary-card">
+            <span>{adviceSummary.withFollowUp}</span>
+            <small>With follow-up</small>
+          </div>
+          <div className="doctor-advice-summary-card">
+            <span>{adviceSummary.upcomingFollowUps}</span>
+            <small>Upcoming follow-ups</small>
+          </div>
+        </div>
 
         <form onSubmit={handleSubmit} className="doctor-advice-form">
-          <div className="doctor-advice-field">
-            <label htmlFor="patientId" className="doctor-advice-label">
-              Patient
-            </label>
-            <select
-              id="patientId"
-              name="patientId"
-              value={form.patientId}
-              onChange={handleChange}
-              className="doctor-advice-input"
-            >
-              <option value="">Select a patient</option>
-              {patients.map((patient) => (
-                <option key={patient._id} value={patient._id}>
-                  {patient.username} ({patient.email})
-                </option>
-              ))}
-            </select>
+          <div className="doctor-advice-form-grid">
+            <div className="doctor-advice-field">
+              <label htmlFor="patientId" className="doctor-advice-label">
+                Patient
+              </label>
+              <select
+                id="patientId"
+                name="patientId"
+                value={form.patientId}
+                onChange={handleChange}
+                className="doctor-advice-input"
+              >
+                <option value="">Select a patient</option>
+                {patients.map((patient) => (
+                  <option key={patient._id} value={patient._id}>
+                    {patient.fullName || patient.username} ({patient.email})
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            <div className="doctor-advice-field">
+              <label htmlFor="followUpDate" className="doctor-advice-label">
+                Follow-up Date (optional)
+              </label>
+              <input
+                id="followUpDate"
+                name="followUpDate"
+                type="date"
+                value={form.followUpDate}
+                onChange={handleChange}
+                className="doctor-advice-input"
+              />
+            </div>
           </div>
 
           <div className="doctor-advice-field">
@@ -151,20 +223,6 @@ const DoctorAdvice = () => {
             />
           </div>
 
-          <div className="doctor-advice-field">
-            <label htmlFor="followUpDate" className="doctor-advice-label">
-              Follow-up Date (optional)
-            </label>
-            <input
-              id="followUpDate"
-              name="followUpDate"
-              type="date"
-              value={form.followUpDate}
-              onChange={handleChange}
-              className="doctor-advice-input"
-            />
-          </div>
-
           {error ? <p className="doctor-advice-error">{error}</p> : null}
           {success ? <p className="doctor-advice-success">{success}</p> : null}
 
@@ -174,36 +232,49 @@ const DoctorAdvice = () => {
         </form>
 
         <div className="doctor-advice-list">
-          <h3>Sent Advice</h3>
+          <div className="doctor-advice-list-head">
+            <h3>Sent Advice</h3>
+            <input
+              type="text"
+              value={searchTerm}
+              onChange={(event) => setSearchTerm(event.target.value)}
+              className="doctor-advice-search"
+              placeholder="Search by patient, title, or message"
+              aria-label="Search sent advice"
+            />
+          </div>
+
           {loadingAdvice ? (
             <p className="doctor-advice-empty">Loading advice history...</p>
           ) : sentAdvice.length === 0 ? (
             <p className="doctor-advice-empty">No advice sent yet.</p>
+          ) : filteredAdvice.length === 0 ? (
+            <p className="doctor-advice-empty">No advice matches your search.</p>
           ) : (
-            sentAdvice.map((advice) => (
-              <div key={advice._id} className="doctor-advice-card">
-                <p>
-                  <strong>Patient:</strong>{" "}
-                  {advice.patient?.fullName || advice.patient?.username || "Unknown Patient"}
-                </p>
-                <p>
-                  <strong>Title:</strong> {advice.title}
-                </p>
-                <p>
-                  <strong>Advice:</strong> {advice.message}
-                </p>
-                <p>
-                  <strong>Given On:</strong>{" "}
-                  {new Date(advice.createdAt).toLocaleString()}
-                </p>
-                {advice.followUpDate ? (
+            <div className="doctor-advice-grid">
+              {filteredAdvice.map((advice) => (
+                <div key={advice._id} className="doctor-advice-card">
+                  <h4>{advice.title || "General Advice"}</h4>
                   <p>
-                    <strong>Follow-up:</strong>{" "}
-                    {new Date(advice.followUpDate).toLocaleDateString()}
+                    <strong>Patient:</strong>{" "}
+                    {advice.patient?.fullName || advice.patient?.username || "Unknown Patient"}
                   </p>
-                ) : null}
-              </div>
-            ))
+                  <p>
+                    <strong>Advice:</strong> {advice.message}
+                  </p>
+                  <p>
+                    <strong>Given On:</strong>{" "}
+                    {new Date(advice.createdAt).toLocaleString()}
+                  </p>
+                  {advice.followUpDate ? (
+                    <p>
+                      <strong>Follow-up:</strong>{" "}
+                      {new Date(advice.followUpDate).toLocaleDateString()}
+                    </p>
+                  ) : null}
+                </div>
+              ))}
+            </div>
           )}
         </div>
       </div>

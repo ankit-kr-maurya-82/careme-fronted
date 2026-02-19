@@ -16,16 +16,6 @@
   margin-bottom: 8px;
 }
 
-.patient-dashboard .role {
-  display: inline-block;
-  background: #e6f2ff;
-  color: #007bff;
-  padding: 6px 14px;
-  border-radius: 20px;
-  font-size: 0.9rem;
-  font-weight: 500;
-}
-
 .patient-dashboard .search-box {
   display: flex;
   justify-content: center;

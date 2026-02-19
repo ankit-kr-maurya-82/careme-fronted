@@ -42,12 +42,20 @@ const DoctorDashboard = () => {
 
   return (
     <div className="doctor-dashboard">
-      <div>
-        <h1>Welcome Dr. {user?.fullName}</h1>
-        <p>Email: {user?.email}</p>
-        <p>Specialty: {user?.specialty}</p>
+      <div className="doctor-dashboard-card">
+        <div className="doctor-dashboard-head">
+          <p className="doctor-dashboard-kicker">Doctor Workspace</p>
+          <h1>Welcome Dr. {user?.fullName}</h1>
+          <p>Email: {user?.email}</p>
+          <p>Specialty: {user?.specialty || "General"}</p>
+        </div>
+
+        <div className="doctor-dashboard-meta">
+          <span>{hasConnectedPatients ? "Active" : "Waiting"}</span>
+          <small>Patient connection status</small>
+        </div>
+
         {error ? <p className="doctor-dashboard-error">{error}</p> : null}
-        <hr />
 
         <div className="dashboard-buttons">
           <button onClick={() => navigate("/doctor/patients")}>Patient List</button>
