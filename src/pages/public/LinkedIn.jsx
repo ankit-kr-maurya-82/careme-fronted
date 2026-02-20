@@ -26,28 +26,47 @@ const profiles = [
   },
 ];
 
+const getInitials = (name) =>
+  name
+    .split(" ")
+    .map((part) => part[0])
+    .join("")
+    .slice(0, 2)
+    .toUpperCase();
+
 const LinkedIn = () => {
   return (
-    <section className="linkedin">
-      <h2 className="linkedin-title">LinkedIn Profiles</h2>
-      <p className="linkedin-subtitle">
-        Connect with our core contributors and follow their professional
-        updates.
-      </p>
+    <section className="linkedin" aria-label="LinkedIn team profiles">
+      <div className="linkedin-head">
+        <p className="linkedin-kicker">Team Network</p>
+        <h2 className="linkedin-title">Meet Us on LinkedIn</h2>
+        <p className="linkedin-subtitle">
+          Connect with our core contributors and follow their professional
+          updates.
+        </p>
+      </div>
 
-      <div className="linkedin-grid">
+      <div className="linkedin-grid" role="list">
         {profiles.map((profile) => (
-          <article key={profile.id} className="linkedin-card">
-            <p className="linkedin-company">{profile.company}</p>
-            <h3>{profile.name}</h3>
+          <article key={profile.id} className="linkedin-card" role="listitem">
+            <div className="linkedin-card-top">
+              <div className="linkedin-avatar" aria-hidden="true">
+                {getInitials(profile.name)}
+              </div>
+              <span className="linkedin-brand">in</span>
+            </div>
+
+            <h3 className="linkedin-name">{profile.name}</h3>
             <p className="linkedin-role">{profile.role}</p>
+            <p className="linkedin-company">{profile.company}</p>
+
             <a
               href={profile.profileUrl}
               target="_blank"
               rel="noreferrer"
               className="linkedin-link"
             >
-              View LinkedIn
+              View Profile
             </a>
           </article>
         ))}
