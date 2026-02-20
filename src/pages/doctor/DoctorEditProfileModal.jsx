@@ -6,6 +6,7 @@ import "./css/DoctorEditProfileModal.css";
 const DoctorEditProfileModal = ({ doctor, onClose, onUpdated }) => {
   const { user, setUser } = useContext(UserContext);
   const [loading, setLoading] = useState(false);
+  const [avatarFile, setAvatarFile] = useState(null);
   const [formData, setFormData] = useState({
     fullName: doctor?.fullName || "",
     specialty: doctor?.specialty || "",
@@ -18,11 +19,25 @@ const DoctorEditProfileModal = ({ doctor, onClose, onUpdated }) => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
+  const handleAvatarFileChange = (e) => {
+    const file = e.target.files?.[0] || null;
+    setAvatarFile(file);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       setLoading(true);
-      const res = await api.put("/doctors/update", formData);
+      const payload = new FormData();
+      payload.append("fullName", formData.fullName);
+      payload.append("specialty", formData.specialty);
+      payload.append("phone", formData.phone);
+      payload.append("avatarUrl", formData.avatar);
+      if (avatarFile) payload.append("avatar", avatarFile);
+
+      const res = await api.put("/doctors/update", payload, {
+        headers: { "Content-Type": "multipart/form-data" },
+      });
       const updatedDoctor = res.data?.data?.doctor;
       if (!updatedDoctor) {
         throw new Error("Invalid update response");
@@ -83,6 +98,16 @@ const DoctorEditProfileModal = ({ doctor, onClose, onUpdated }) => {
             name="avatar"
             value={formData.avatar}
             onChange={handleChange}
+            placeholder="https://example.com/avatar.jpg"
+          />
+
+          <label htmlFor="doctor-avatarFile">Avatar Image (From Device)</label>
+          <input
+            id="doctor-avatarFile"
+            type="file"
+            name="avatarFile"
+            accept="image/png,image/jpeg,image/jpg"
+            onChange={handleAvatarFileChange}
           />
 
           <div className="doctor-modal-buttons">

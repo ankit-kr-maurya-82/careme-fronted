@@ -1,11 +1,17 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import UserContext from "../../context/UserContext";
 import EditProfileModal from "./EditProfileModal";
+import userAvatar from "../../assets/user.png";
 import "./css/PatientProfile.css";
 
 const PatientProfile = () => {
   const { user } = useContext(UserContext);
   const [showModal, setShowModal] = useState(false);
+  const [avatarLoadFailed, setAvatarLoadFailed] = useState(false);
+
+  useEffect(() => {
+    setAvatarLoadFailed(false);
+  }, [user?.avatar]);
 
   if (!user) {
     return (
@@ -25,6 +31,10 @@ const PatientProfile = () => {
     { label: "Gender", value: user.gender || "Not set" },
   ];
 
+  const displayName = user.fullName || user.username || "Patient";
+  const avatarInitial = displayName.charAt(0).toUpperCase();
+  const avatarSrc = user.avatar || userAvatar;
+
   return (
     <section className="patient-profile-page">
       <div className="patient-profile-shell">
@@ -39,9 +49,17 @@ const PatientProfile = () => {
 
           <div className="patient-profile-avatar-card">
             <div className="patient-profile-avatar">
-              {(user.fullName || user.username || "P").charAt(0).toUpperCase()}
+              {!avatarLoadFailed ? (
+                <img
+                  src={avatarSrc}
+                  alt={`${displayName} avatar`}
+                  onError={() => setAvatarLoadFailed(true)}
+                />
+              ) : (
+                avatarInitial
+              )}
             </div>
-            <p>{user.fullName || user.username || "Patient"}</p>
+            <p>{displayName}</p>
             <small>{user.email || "No email"}</small>
           </div>
         </div>

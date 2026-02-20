@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import { FaBars, FaTimes, FaUserCircle } from "react-icons/fa";
+import { FaBars, FaTimes } from "react-icons/fa";
 import UserContext from "../../context/UserContext";
 import "./css/Header.css";
 
@@ -50,6 +50,9 @@ const Header = () => {
     closeMenu();
     navigate("/");
   };
+
+  const displayName = user?.fullName || user?.username || "User";
+  const avatarInitial = displayName.charAt(0).toUpperCase();
 
   return (
     <header className="header">
@@ -140,7 +143,17 @@ const Header = () => {
               </>
             ) : (
               <div className="user-profile">
-                <FaUserCircle className="profile-icon" />
+                {user?.avatar ? (
+                  <img
+                    src={user.avatar}
+                    alt={`${displayName} avatar`}
+                    className="profile-avatar"
+                  />
+                ) : (
+                  <div className="profile-avatar-fallback" aria-hidden="true">
+                    {avatarInitial}
+                  </div>
+                )}
                 <span className="username">
                   {user.username} ({user.role === "doctor" ? "Doctor" : "Patient"})
                 </span>

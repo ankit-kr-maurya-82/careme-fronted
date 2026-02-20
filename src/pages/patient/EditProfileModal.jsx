@@ -5,10 +5,12 @@ import "./css/EditProfileModal.css";
 
 const EditProfileModal = ({ onClose }) => {
   const { user, setUser } = useContext(UserContext);
+  const [avatarFile, setAvatarFile] = useState(null);
   const [formData, setFormData] = useState({
     username: user?.username || "",
     fullName: user?.fullName || "",
     gender: user?.gender || "",
+    avatar: user?.avatar || "",
   });
   const [loading, setLoading] = useState(false);
   const [submitError, setSubmitError] = useState("");
@@ -20,6 +22,11 @@ const EditProfileModal = ({ onClose }) => {
     });
   };
 
+  const handleAvatarFileChange = (e) => {
+    const file = e.target.files?.[0] || null;
+    setAvatarFile(file);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSubmitError("");
@@ -27,13 +34,16 @@ const EditProfileModal = ({ onClose }) => {
     try {
       setLoading(true);
 
-      const payload = {
-        username: formData.username,
-        fullName: formData.fullName,
-        gender: formData.gender?.toLowerCase() || "",
-      };
+      const payload = new FormData();
+      payload.append("username", formData.username);
+      payload.append("fullName", formData.fullName);
+      payload.append("gender", formData.gender?.toLowerCase() || "");
+      payload.append("avatarUrl", formData.avatar);
+      if (avatarFile) payload.append("avatar", avatarFile);
 
-      const res = await api.put("/patient/update", payload);
+      const res = await api.put("/patient/update", payload, {
+        headers: { "Content-Type": "multipart/form-data" },
+      });
       const updatedUser = res.data?.data?.patient;
 
       if (!updatedUser) {
@@ -95,6 +105,29 @@ const EditProfileModal = ({ onClose }) => {
               <option value="female">Female</option>
               <option value="other">Other</option>
             </select>
+          </div>
+
+          <div className="patient-modal-field">
+            <label htmlFor="avatar">Avatar URL</label>
+            <input
+              id="avatar"
+              type="text"
+              name="avatar"
+              value={formData.avatar}
+              onChange={handleChange}
+              placeholder="https://example.com/avatar.jpg"
+            />
+          </div>
+
+          <div className="patient-modal-field">
+            <label htmlFor="avatarFile">Avatar Image (From Device)</label>
+            <input
+              id="avatarFile"
+              type="file"
+              name="avatarFile"
+              accept="image/png,image/jpeg,image/jpg"
+              onChange={handleAvatarFileChange}
+            />
           </div>
 
           {submitError ? <p className="patient-modal-error">{submitError}</p> : null}

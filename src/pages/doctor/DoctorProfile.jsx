@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import api from "../../api/axios";
 import UserContext from "../../context/UserContext";
 import DoctorEditProfileModal from "./DoctorEditProfileModal";
+import userAvatar from "../../assets/user.png";
 import "./css/DoctorProfile.css";
 
 const DoctorProfile = () => {
@@ -10,6 +11,7 @@ const DoctorProfile = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [showModal, setShowModal] = useState(false);
+  const [avatarLoadFailed, setAvatarLoadFailed] = useState(false);
 
   useEffect(() => {
     const fetchDoctorProfile = async () => {
@@ -27,6 +29,10 @@ const DoctorProfile = () => {
 
     if (user?._id) fetchDoctorProfile();
   }, [user?._id]);
+
+  useEffect(() => {
+    setAvatarLoadFailed(false);
+  }, [doctor?.avatar]);
 
   if (!user) {
     return (
@@ -68,6 +74,10 @@ const DoctorProfile = () => {
     );
   }
 
+  const displayName = doctor.fullName || doctor.username || "Doctor";
+  const avatarInitial = displayName.charAt(0).toUpperCase();
+  const avatarSrc = doctor.avatar || userAvatar;
+
   const profileFields = [
     { label: "Full Name", value: doctor.fullName || "Not set" },
     { label: "Username", value: doctor.username || "Not set" },
@@ -91,9 +101,17 @@ const DoctorProfile = () => {
 
           <div className="doctor-profile-avatar-card">
             <div className="doctor-avatar">
-              {(doctor.fullName || doctor.username || "D").charAt(0).toUpperCase()}
+              {!avatarLoadFailed ? (
+                <img
+                  src={avatarSrc}
+                  alt={`${displayName} avatar`}
+                  onError={() => setAvatarLoadFailed(true)}
+                />
+              ) : (
+                avatarInitial
+              )}
             </div>
-            <p>{doctor.fullName || doctor.username || "Doctor"}</p>
+            <p>{displayName}</p>
           </div>
         </div>
 
