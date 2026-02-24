@@ -34,7 +34,7 @@ const Contact = () => {
               <FaPhoneAlt className="contact-info-icon" />
               <div>
                 <h4>Phone</h4>
-                <p>+91 9555154346</p>
+                <p>+91 00000 00000</p>
               </div>
             </article>
 
